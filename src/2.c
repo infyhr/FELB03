@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS // VStudio stuff
 #ifdef __unix__
 #define _strcmpi strcasecmp
 #endif
