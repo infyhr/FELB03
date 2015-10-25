@@ -21,12 +21,13 @@ void Delete(Position);
 void Print(Position);
 void Exit(Position);
 Position FindPrevious(Position, char[]);
-Position Find();
+Position Find(Position, char []);
 Position FindLast(Position);
 
 int main(int argc, char **argv) {
     struct Person head, *current;
     int choice; // This could perhaps be a character, if so required.
+    char query[32];
 
     head.Next = NULL;
 
@@ -48,7 +49,10 @@ int main(int argc, char **argv) {
                 Print(head.Next);
             break;
             case 4: // Find an element within the list.
-                current = Find(head.Next);
+                printf("Prezime trazene osobe: ");
+                scanf("%32s", query); // Ask away
+
+                current = Find(head.Next, query);
                 if(!current) {
                     printf("Nista nije pronadeno.\n");
                     break;
@@ -72,16 +76,10 @@ Position FindLast(Position P) {
     return P;
 }
 
-Position Find(Position P) {
-    char temp[32];
-
-    printf("Prezime trazene osobe: ");
-    scanf("%32s", temp);
-    if(strlen(temp) <= 0) return NULL;
-
+Position Find(Position P, char query[32]) {
     while(P != NULL) { // Loop through each element
         // Change _strcmpi to strcasecmp if running on *nix.
-        if(_strcmpi(temp, P->lastName) == 0) break; // If we've found what we're looking for stop then.
+        if(_strcmpi(query, P->lastName) == 0) break; // If we've found what we're looking for stop then.
 
         P = P->Next;
     }
