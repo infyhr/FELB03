@@ -31,21 +31,21 @@ int main(int argc, char **argv) {
         if(!choice) break; // Exit
 
         switch(choice) {
-        default:
-            printf("Nepoznata naredba.\n");
-            break;
-        case 1: // Add to stack
-            Push(&Stack);
-            break;
-        case 2:
-            lastElement = Push(lastElement);
-            break;
-        case 3:
-            Pop(&Stack);
-            break;
-        case 4:
-            Pop(&Queue);
-            break;
+            default:
+                printf("Nepoznata naredba.\n");
+                break;
+            case 1: // Add to stack
+                Push(&Stack);
+                break;
+            case 2:
+                lastElement = Push(lastElement);
+                break;
+            case 3:
+                Pop(&Stack);
+                break;
+            case 4:
+                Pop(&Queue);
+                break;
         }
     }
 }
