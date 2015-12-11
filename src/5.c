@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     Print(Union(list1.Next, list2.Next).Next);
 }
 
-struct LL Union(Position P1, Position P2) {
+struct LL Intersection(Position P1, Position P2) {
     struct LL Result;
     Result.Next = NULL;
 
@@ -47,7 +47,7 @@ struct LL Union(Position P1, Position P2) {
     return Result;
 }
 
-struct LL Intersection(Position P1, Position P2) {
+struct LL Union(Position P1, Position P2) {
     Position temp;
     struct LL Result;
     Result.Next = NULL;
